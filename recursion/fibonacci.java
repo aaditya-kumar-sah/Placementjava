@@ -1,4 +1,4 @@
-public class Fibonacci {
+public class fibonacci {
 
     public static int fibo(int n) {
         if (n == 0) {

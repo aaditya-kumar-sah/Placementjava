@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class recursion{
+public class recursion3{
     public static void printSum(int n, int i, int sum){
         if(i == n){
             sum += i;

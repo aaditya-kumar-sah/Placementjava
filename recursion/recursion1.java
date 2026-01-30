@@ -1,5 +1,5 @@
 public class recursion1{
-    public static void int clacPow(int x, int n){
+    public static int clacPow(int x, int n){
         if(n == 0){
             return 1;
         }
