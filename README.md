@@ -1,2 +1,1 @@
-# java-series
-# Placementjava
+![qna(recursion/problems/recurtion4:) Screenshot](tower_of_hanoi.png)
