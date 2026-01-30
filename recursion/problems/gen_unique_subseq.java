@@ -18,7 +18,7 @@ public class gen_unique_subseq {
         unique_seq(str, idx + 1, newString, set);
     }
     public static void main(String args[]){
-        String str = "abc";
+        String str = "aab";
         HashSet<String> set = new HashSet<>();
         unique_seq(str, 0, "", set);
     }
