@@ -1,7 +1,8 @@
+package stack;
 import java.util.*;
 
-public class balanceBraces {
-    public static boolean isBalanced(String str){
+public class balance{
+    public static boolean isBalance(String str){
         Stack<Character> st = new Stack<>();
         int n = str.length();
         for(int i = 0; i < n; i ++){
@@ -10,22 +11,16 @@ public class balanceBraces {
                 st.push(ch);
             }
             else{
-                if(st.size() == 0){
-                    return false;
-                }
-                if(st.peek() == '('){
-                    st.pop();
-                }
+                if(st.size() == 0) return false;
+                if(st.peek() == '(') st.pop();
             }
-            if(st.size() > 0) return false;
-            else return true;
         }
+        if(st.size() > 0) return false;
+        else return true;
     }
-
-    
     public static void main(String args[]){
         Scanner sc = new Scanner(System.in);
         String str = sc.nextLine();
-        System.out.println(isBalanced(str));
+        System.out.println(isBalance(str));
     }
 }
