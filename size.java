@@ -8,6 +8,11 @@ public class size {
             this.val = val;
         }
     }
+    public static int height(Node root){
+        if(root == null) return 0;
+        if(root.left == null && root.right == null) return 0;
+        return 1 + Math.max(height(root.left), height(root.right));
+    }
     public static int max(Node root){
         if(root == null) return 0;
         int a = root.val;
@@ -38,5 +43,6 @@ public class size {
 
         System.out.println(size(root));
         System.out.println(max(root));
+        System.out.println(height(root));
     }
 }
