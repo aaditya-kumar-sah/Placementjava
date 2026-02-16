@@ -1,4 +1,4 @@
-public import java.lang.reflect.Array;
+
 import java.util.*;
 
 public class undirectedUnweightedgraph {
@@ -41,33 +41,45 @@ public class undirectedUnweightedgraph {
         graph[5].add(new Edge(5, 5)); 
     }
 
-    public static void bfs(ArrayList<Edge> graph[], int V, boolean[] vis, int start){
-        Queue<Integer> q = new LinkedList<>();
-        q.add(start);
-        while(!q.isEmpty()){
-            int curr = q.remove();
-            if(vis[curr] == false){
-                System.out.println(curr);
-                vis[curr] = true;
-                for(int i = 0; i < graph[curr].size(); i ++){
-                    Edge e = graph[curr].get(i);
-                    q.add(e.dest);
-                }
-            }
+    // public static void bfs(ArrayList<Edge> graph[], int V, boolean[] vis, int start){
+    //     Queue<Integer> q = new LinkedList<>();
+    //     q.add(start);
+    //     while(!q.isEmpty()){
+    //         int curr = q.remove();
+    //         if(vis[curr] == false){
+    //             System.out.println(curr);
+    //             vis[curr] = true;
+    //             for(int i = 0; i < graph[curr].size(); i ++){
+    //                 Edge e = graph[curr].get(i);
+    //                 q.add(e.dest);
+    //             }
+    //         }
+    //     }
+    // }
+     public static void dfs(ArrayList<Edge> graph[], int curr, boolean[] vis){
+        System.out.println(curr);
+        vis[curr] = true;
+        for(int i = 0; i < graph[curr].size(); i ++){
+            Edge e = graph[curr].get(i);
+            if(vis[e.dest] == false)
+                dfs(graph, e.dest, vis);
         }
-    }
+     }
     public static void main(String args[]) {
         int V = 7;
         ArrayList<Edge>[] graph = new ArrayList[V];
 
         CreateGraph(graph);
         boolean[] vis = new boolean[V];
+        // for(int i = 0; i < V; i ++){
+        //     if(vis[i] == false){
+        //         bfs(graph, V, vis, i);
+        //     }
+        // }
         for(int i = 0; i < V; i ++){
             if(vis[i] == false){
-                bfs(graph, V, vis, i);
+                dfs(graph, i, vis);
             }
         }
     }
-} {
-    
-}
+} 
