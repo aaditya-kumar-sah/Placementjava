@@ -1,7 +1,8 @@
 
+
 import java.util.*;
 
-public class qna {
+public class dfs {
 
     static class Edge {
         int src;
@@ -65,28 +66,21 @@ public class qna {
                 dfs(graph, e.dest, vis);
         }
      }
-
-
-     public static void printallpath(ArrayList<Edge> graph[], boolean vis[], int curr, String path, int tar){
-        if(curr == tar){
-            System.out.println(path);
-            return;
-        }
-        for(int i = 0; i < graph[curr].size(); i ++){
-            Edge e = graph[curr].get(i);
-            if(!vis[e.dest]){
-                vis[curr] = true;
-                printallpath(graph, vis, e.dest, path + e.dest, tar);
-                vis[curr] = false;
-            }
-        }
-     }
     public static void main(String args[]) {
         int V = 7;
         ArrayList<Edge>[] graph = new ArrayList[V];
 
         CreateGraph(graph);
-        int src = 0, tar = 5;
-        printallpath(graph, new boolean[V], src, "0", tar);
+        boolean[] vis = new boolean[V];
+        // for(int i = 0; i < V; i ++){
+        //     if(vis[i] == false){
+        //         bfs(graph, V, vis, i);
+        //     }
+        // }
+        for(int i = 0; i < V; i ++){
+            if(vis[i] == false){
+                dfs(graph, i, vis);
+            }
+        }
     }
-}
+} 
