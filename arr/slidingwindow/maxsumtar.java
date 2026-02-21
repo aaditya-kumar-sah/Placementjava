@@ -1,4 +1,4 @@
-package arr;
+package arr.slidingwindow;
 
 public class maxsumtar{
 
