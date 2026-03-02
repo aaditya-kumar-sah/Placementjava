@@ -15,7 +15,7 @@ public class maxsumtar{
             currSum += nums[i];
             if(currSum == target){
                 count ++;
-            }
+            }sdaf
         }
         
         for(int i = k; i < n; i++){
