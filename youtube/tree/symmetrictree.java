@@ -1,4 +1,4 @@
-package youtube;
+package youtube.tree;
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -15,14 +15,16 @@ package youtube;
  * }
  */
 class Solution {
-    public boolean helper(TreeNode l, TreeNode r){
-        if(l == null && r == null) return true;
-        if(l == null || r == null) return false;
-        return (l.val == r.val) && (helper(l.left, r.right) && helper(l.right, r.left));
+    public boolean isMirror(TreeNode node1, TreeNode node2){
+        if(node1 == null && node2 == null) return true;
+        if(node1 == null || node2 == null) return false;
+        if(node1.val != node2.val) return false;
+        
+        return (isMirror(node1.left, node2.right) && isMirror(node1.right, node2.left));
     }
 
     public boolean isSymmetric(TreeNode root) {
-        if(root == null ) return true;
-        return helper(root.left, root.right);
+        if(root == null) return true;
+        return isMirror(root.left, root.right);
     }
 }

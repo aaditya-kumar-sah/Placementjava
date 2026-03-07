@@ -1,4 +1,4 @@
-package youtube;
+package youtube.tree;
 import graphs.dfs;
 
 public class bfsinTree {
