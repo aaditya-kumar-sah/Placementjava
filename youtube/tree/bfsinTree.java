@@ -1,4 +1,5 @@
 package youtube.tree;
+import arr.solve;
 import graphs.dfs;
 
 public class bfsinTree {
@@ -19,13 +20,14 @@ public class bfsinTree {
         dfs(root.left);
         dfs(root.right);
     }
-    // 
-    public void find(Node root, int target){
-        if(root == null) return;
-
-        if(root.val == target) return root;
+    public int solve(Node root){
+        if(root == null) return 0;
+        int sum = 0;
+        sum += root.val;
+        solve(root.left);
+        solve(root.right);
+        return sum;
     }
-
     public static void main(String args[]) {
         int targer = 4;
 
@@ -40,5 +42,6 @@ public class bfsinTree {
         root.right.left = new Node(4);
         root.right.right = new Node(3);
         // dfs(root);
+        solve(root);
     }
 }
