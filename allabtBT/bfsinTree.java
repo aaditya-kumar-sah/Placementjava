@@ -32,8 +32,9 @@ dfadfa
         root.left.right = new Node(4);
 
         root.right.left = new Node(4);
-        root.right.right = new Node(3);
+        root.right.right = new Node(3)
         printuptonthnode(root, 2);
+        
 
     }
 }
